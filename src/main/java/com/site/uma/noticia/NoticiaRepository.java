@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface NoticiaRepository extends PagingAndSortingRepository<NoticiaModel, Long> {
     Optional<NoticiaModel> findNoticiaByCodigo(Long Codigo);
-
+    Optional<NoticiaModel> deleteNoticiaByCodigo(Long Codigo);
 }

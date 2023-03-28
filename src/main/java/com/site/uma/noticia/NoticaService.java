@@ -32,7 +32,7 @@ public class NoticaService {
         return (List<NoticiaModel>) noticiaRepository.findAll(Sort.by(Sort.Direction.DESC, "data"));
     }
     public Page<NoticiaModel> listDestaques(Pageable pageable){
-        Sort sort = Sort.by(Sort.Direction.DESC,"destaque");
+        Sort sort = Sort.by(Sort.Order.desc("destaque"),Sort.Order.desc("data"));
         pageable= PageRequest.of(0,3,sort);
         return  noticiaRepository.findAll(pageable);
     }
@@ -44,5 +44,9 @@ public class NoticaService {
     public NoticiaModel findNoticiaById(Long codigo){
         return noticiaRepository.findNoticiaByCodigo(codigo).orElseThrow(
                 () -> new UserNotFoundException("Noticia "+codigo+" não foi encontrada"));
+    }
+    public NoticiaModel deleteNoticiaById(Long codigo){
+        noticiaRepository.deleteById(codigo);
+        return null;
     }
 }

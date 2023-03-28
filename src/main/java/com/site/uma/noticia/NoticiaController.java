@@ -12,6 +12,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/noticia")
 //@CrossOrigin("http://localhost:3000/")
+@CrossOrigin("*")
+//@CrossOrigin(origins = "http://universidademetodista.co.ao/")
 public class NoticiaController {
 
     private final NoticaService noticaService;
@@ -59,6 +61,10 @@ public class NoticiaController {
     public NoticiaModel deleteCurso(@RequestBody NoticiaModel noticia){
         noticaService.deleteNotica(noticia);
         return noticia;
+    }
+    @DeleteMapping("/{codigo}")
+    public NoticiaModel deleteNoticiaByCodigo(@PathVariable("codigo") Long codigo){
+        return noticaService.deleteNoticiaById(codigo);
     }
 
 

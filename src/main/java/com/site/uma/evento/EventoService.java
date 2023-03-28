@@ -1,6 +1,7 @@
 package com.site.uma.evento;
 
 import com.site.uma.faculdade.UserNotFoundException;
+import com.site.uma.noticia.NoticiaModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,5 +44,9 @@ public class EventoService {
     public EventoModel findEventoById(Long codigo){
         return eventoRepository.findEventoByCodigo(codigo).orElseThrow(
                 () -> new UserNotFoundException("Evento "+codigo+" não foi encontrada"));
+    }
+    public NoticiaModel deleteEventoById(Long codigo){
+        eventoRepository.deleteById(codigo);
+        return null;
     }
 }

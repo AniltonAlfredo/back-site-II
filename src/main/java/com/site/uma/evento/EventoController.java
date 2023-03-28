@@ -1,5 +1,6 @@
 package com.site.uma.evento;
 
+import com.site.uma.noticia.NoticiaModel;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,9 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/evento")
-//@CrossOrigin("http://localhost:3000/")
+//@CrossOrigin(origins = "http://196.249.246.165/")
+//@CrossOrigin(origins = "http://universidademetodista.co.ao/")
+@CrossOrigin("*")
 public class EventoController {
     private final EventoService eventoService;
 
@@ -53,5 +56,9 @@ public class EventoController {
     public EventoModel deleteCurso(@RequestBody EventoModel evento){
         eventoService.deleteEvento(evento);
         return evento;
+    }
+    @DeleteMapping("/{codigo}")
+    public NoticiaModel deleteEventoByCodigo(@PathVariable("codigo") Long codigo){
+        return eventoService.deleteEventoById(codigo);
     }
 }

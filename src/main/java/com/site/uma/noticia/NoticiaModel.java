@@ -11,11 +11,13 @@ public class NoticiaModel {
     public long codigo;
     @Column(nullable = false)
     public String titulo;
-    @Column(nullable = false)
+
+    @Column(columnDefinition="TEXT")
     public String resumo;
     @Column
     public Date data;
-    @Column
+
+    @Column(columnDefinition="TEXT")
     public String descricao;
     @Column
     public String tag;
