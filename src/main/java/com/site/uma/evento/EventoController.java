@@ -14,8 +14,8 @@ import java.util.List;
 @RequestMapping("/evento")
 //@CrossOrigin(origins = "http://196.249.246.165/")
 //@CrossOrigin(origins = "http://universidademetodista.co.ao/")
-//@CrossOrigin("*")
-@CrossOrigin(origins = "https://uma.co.ao/")
+@CrossOrigin("*")
+//@CrossOrigin(origins = "https://uma.co.ao/")
 public class EventoController {
     private final EventoService eventoService;
 
